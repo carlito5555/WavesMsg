@@ -37,8 +37,8 @@
       ]
     },
     "C:\\Users\\Home\\Documents\\GitHub\\WavesMsg\\contracts\\WavePortal.sol": {
-      "lastModificationDate": 1655908691851,
-      "contentHash": "0cbc1aa5ab22351e3aca6012dda0e43d",
+      "lastModificationDate": 1656087604645,
+      "contentHash": "44090e5c4e0fa1c2c4782a826affc4be",
       "sourceName": "contracts/WavePortal.sol",
       "solcConfig": {
         "version": "0.8.4",

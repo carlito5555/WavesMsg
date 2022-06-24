@@ -11,15 +11,31 @@ const main = async () => {
     let waveCount;
     waveCount = await waveContract.getTotalWaves();
 
-    let waveTxn = await waveContract.wave();
+    let waveTxn = await waveContract.sendWave("test","Carl");
+    await waveTxn.wait();
+
+    waveTxn = await waveContract.sendWave("Yes","Carl");
     await waveTxn.wait();
 
     waveCount = await waveContract.getTotalWaves();
 
-    waveTxn = await waveContract.connect(randomPerson).wave();
+    waveTxn = await waveContract.connect(randomPerson).sendWave("Je t'aime","RandomPerson");
+    await waveTxn.wait();
+
+    waveTxn = await waveContract.connect(user2).sendWave("Hello","User2");
+    await waveTxn.wait();
+
+    waveTxn = await waveContract.connect(user3).sendWave("World","User3");
     await waveTxn.wait();
 
     waveCount = await waveContract.getTotalWaves();
+
+    const WaveList = await Promise.all(
+        [...Array(waveCount)].map(() =>waveContract.Contract.getWaves())
+    
+    );
+    
+
 
 };
 
