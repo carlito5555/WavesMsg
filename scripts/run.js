@@ -1,9 +1,12 @@
+const { Contract } = require("ethers");
 
 
 const main = async () => {
-    const [owner, randomPerson] = await hre.ethers.getSigners();
+    const [owner, randomPerson, user2, user3] = await hre.ethers.getSigners();
     const waveContractFactory = await hre.ethers.getContractFactory("WavePortal");
     const waveContract = await waveContractFactory.deploy();
+    
+
     await waveContract.deployed();
     console.log("Contract deployed to:", waveContract.address);
     console.log ("Contract deployed by:", owner.address);

@@ -1,10 +1,14 @@
+
+// File: WavePortal.sol
 // SPDX-License-Identifier: UNLICENSED
-// @uthor : carlito
-// Based on buildspace exercices (https://buildspace.so/p/build-solidity-web3-app/lessons/store-data-on-smart-contract)
 
 pragma solidity ^0.8.0;
 
-import "hardhat/console.sol";
+// @uthor : carlito
+// Based on buildspace exercices (https://buildspace.so/p/build-solidity-web3-app/lessons/store-data-on-smart-contract)
+
+
+
 
 
 contract WavePortal {
@@ -16,28 +20,28 @@ contract WavePortal {
         address addressAuthor;
     }
 
-    Wave[] waves;
+    Wave[] public waves;
 
     //mapping(uint => Wave) public waves;
     //mapping(address => uint) public wavers;
     uint private totalWaves;
 
     constructor() {
-        console.log("Iniitialissation constructor -----");
         totalWaves = 0;
-
     }
 
-    function sendWave(string memory _content, string memory _author) public payable {
+
+
+    function sendWave(string memory _content, string memory _author) public {
         waves.push(Wave(totalWaves, block.timestamp, _content, _author, msg.sender));
        //waves[totalWaves] = Wave(totalWaves, block.timestamp, _content, _author, msg.sender);
         ++totalWaves;
-        console.log("%s has waved!", msg.sender);
+    
     }
 
 
     function getTotalWaves() public view returns (uint256) {
-        console.log("We have %d total waves!", totalWaves);
+
         return totalWaves;
     }
 
